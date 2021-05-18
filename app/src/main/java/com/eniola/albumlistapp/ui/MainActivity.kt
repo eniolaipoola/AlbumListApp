@@ -1,7 +1,6 @@
 package com.eniola.albumlistapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,11 +28,13 @@ class MainActivity : BaseActivity() {
             when(viewState) {
                 is ViewState.SUCCESS -> {
                     loader.hide()
-                    //pass data list fetched from db to recyclerview
-                    adapter.setListItem(viewState.data)
-                    album_list_recyclerview.layoutManager = LinearLayoutManager(this,
-                        LinearLayoutManager.VERTICAL, false)
-                    album_list_recyclerview.adapter = adapter
+                    if(viewState.data != null){
+                        //pass data list fetched from db to recyclerview
+                        adapter.setListItem(viewState.data)
+                        album_list_recyclerview.layoutManager = LinearLayoutManager(this,
+                            LinearLayoutManager.VERTICAL, false)
+                        album_list_recyclerview.adapter = adapter
+                    }
                 }
 
                 is ViewState.ERROR -> {
@@ -64,5 +65,10 @@ class MainActivity : BaseActivity() {
         viewModel.fetchAlbumsFromDatabase()
 
         observeData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.cancelJob()
     }
 }
