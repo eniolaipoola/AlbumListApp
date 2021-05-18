@@ -13,7 +13,6 @@ AlbumListApp fetches a list of albums and populates it on a recyclerview.
 - Gson
 - Dagger 2
 - Architecture Components (Room, LiveData, ViewModel)
-- Android Navigation Component
 - Espresso
 - Unit test
 
