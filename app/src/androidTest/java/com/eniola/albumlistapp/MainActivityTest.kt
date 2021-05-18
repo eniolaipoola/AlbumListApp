@@ -1,11 +1,6 @@
 package com.eniola.albumlistapp
 
 import androidx.test.espresso.Espresso.onData
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.PerformException
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
